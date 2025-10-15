@@ -24,3 +24,35 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Sidebar custom scrollbar */
+.sidebar-scroll {
+  scrollbar-width: none; /* Firefox: hide scrollbar */
+}
+
+.sidebar-scroll::-webkit-scrollbar {
+  width: 6px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* Thumb (the draggable part) */
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background-color: #9ca3af; /* Tailwind gray-400 */
+  border-radius: 10px;
+}
+
+/* Track (the background of scrollbar) */
+.sidebar-scroll::-webkit-scrollbar-track {
+  background-color: #f3f4f6; /* Tailwind gray-100 */
+}
+
+/* Hide scrollbar by default */
+.sidebar-scroll::-webkit-scrollbar {
+  opacity: 0;
+}
+
+/* Show scrollbar on hover */
+.sidebar-scroll:hover::-webkit-scrollbar {
+  opacity: 1;
+}

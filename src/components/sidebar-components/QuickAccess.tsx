@@ -5,15 +5,15 @@ import Checkbox from "../Checkbox";
 function QuickAccess() {
   return (
     <>
-      <div className="p-2.5">
+      <div className="pt-2 px-2">
         <div className="font-bold text-sm">Quick Access</div>
-        <div className="pt-2.5">
+        <div className="pt-2">
           <Button label="Add New Initiative" />
         </div>
-        <div className="pt-2.5">
+        <div className="pt-2">
           <Button label="Team Update Page" variant="secondary" />
         </div>
-        <div className="pt-2.5">
+        <div className="pt-2">
           <Checkbox label="Light / Dark" variant="secondary" />
         </div>
         <div className="mt-2.5 border-b-1 border-dashed border-gray-300"></div>

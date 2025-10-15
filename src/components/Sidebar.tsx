@@ -6,6 +6,8 @@ import Checkbox from "./Checkbox";
 import QuickAccess from "./sidebar-components/QuickAccess";
 import Input from "./Input";
 import Dropdown from "./Dropdown";
+import SidebarFilters from "./sidebar-components/SidebarFilters";
+import SyncComponent from "./sidebar-components/SyncComponent";
 
 interface SidebarProps {
   isOpen: boolean;
@@ -26,27 +28,12 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen }) => {
         transform ${isOpen ? "translate-x-0" : "-translate-x-full"}
         transition-transform duration-300
         md:translate-x-0 md:static md:block 
+         overflow-y-auto sidebar-scroll
       `}
     >
-      {/* <div className="p-2.5">
-        <div className="font-bold text-sm">Quick Access</div>
-        <div className="pt-2.5">
-          <Button label="Add New Initiative" />
-        </div>
-        <div className="pt-2.5">
-          <Button label="Team Update Page" variant="secondary" />
-        </div>
-        <div className="pt-2.5">
-          <Checkbox label="Light / Dark" variant="secondary" />
-        </div>
-        <div className="mt-2.5 border-b-1 border-dashed border-gray-300"></div>
-      </div> */}
       <QuickAccess />
-      <div className="p-2.5">
-        <Input placeholder="Search (title, tags, description)" />
-        <Dropdown options={options} />
-        <Dropdown options={options} />
-      </div>
+      <SidebarFilters />
+      <SyncComponent />
     </div>
   );
 };

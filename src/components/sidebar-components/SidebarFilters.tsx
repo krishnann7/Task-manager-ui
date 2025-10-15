@@ -1,7 +1,40 @@
 import React from "react";
+import Input from "../Input";
+import Dropdown from "../Dropdown";
+import DatePicker from "../DatePicker";
+import Button from "../Button";
 
 function SidebarFilters() {
-  return <div></div>;
+  const options = [
+    { label: "Option 1", value: "1" },
+    { label: "Option 2", value: "2" },
+    { label: "Option 3", value: "3" },
+  ];
+
+  return (
+    <>
+      <div className="pt-2 px-2">
+        <div className="font-bold text-sm">Filter</div>
+        <div className="pt-2">
+          <Input placeholder="Search (title, tags, description)" />
+        </div>
+        <div className="pt-2">
+          <Dropdown options={options} />
+        </div>
+        <div className="pt-2">
+          <Dropdown options={options} />
+        </div>
+        <div className="pt-2">
+          <DatePicker label="From Date" />
+        </div>
+        <div className="pt-2">
+          <DatePicker label="To Date" />
+        </div>
+        <Button label="Apply Filters" className="mt-2.5 w-full" />
+        <div className="mt-2.5 border-b-1 border-dashed border-gray-300"></div>
+      </div>
+    </>
+  );
 }
 
 export default SidebarFilters;

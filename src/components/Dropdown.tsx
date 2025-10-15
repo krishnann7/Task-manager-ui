@@ -30,7 +30,7 @@ const Dropdown: React.FC<DropdownProps> = ({
         <label className="block text-sm font-semibold mb-1">{label}</label>
       )}
       <select
-        className={`w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm bg-white
+        className={`text-xs w-full px-3 py-2 border border-gray-300 rounded-xl shadow-sm bg-white
         focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-all duration-200
         ${error ? "border-red-500" : ""} ${className}`}
         value={value}

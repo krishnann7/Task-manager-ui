@@ -20,7 +20,7 @@ const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   const baseClasses =
-    "flex items-center justify-center w-full py-2 rounded-md text-sm font-bold transition-colors duration-200 cursor-pointer";
+    "flex items-center justify-center w-full py-1.5 rounded-xl text-sm font-bold transition-colors duration-200 cursor-pointer";
 
   const variantClasses: Record<string, string> = {
     primary: "bg-blue-600 text-white hover:bg-blue-700 shadow-md",
