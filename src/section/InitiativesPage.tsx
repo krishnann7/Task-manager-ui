@@ -3,7 +3,7 @@
 import TableWrapper from "@/components/TableWrapper";
 import Tabs from "@/components/Tabs";
 import React, { useState } from "react";
-
+import { defaultRenderCell } from "@/utils/renderCell";
 export default function InitiativesPage() {
   const tabs = [
     { id: "table", label: "Table" },
@@ -33,6 +33,7 @@ export default function InitiativesPage() {
     {
       id: 1,
       title: "Unified Client Portal",
+      description: "A single portal for all client interactions",
       status: "Open",
       assigned: "Darsh",
       start: "24-09-2025",
@@ -42,6 +43,7 @@ export default function InitiativesPage() {
     {
       id: 2,
       title: "Practice Management",
+      description: "Tools to manage daily operations",
       status: "Open",
       assigned: "Niraj",
       start: "24-10-2025",
@@ -51,6 +53,7 @@ export default function InitiativesPage() {
     {
       id: 3,
       title: "Interactive Tools/ Calculators (Package + Gate)",
+      description: "Engaging tools for user interaction",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -62,6 +65,7 @@ export default function InitiativesPage() {
     {
       id: 4,
       title: "Lead Magnets & Email Nurturing",
+      description: "Strategies to capture and nurture leads",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -73,6 +77,7 @@ export default function InitiativesPage() {
     {
       id: 5,
       title: "Online Payment & E-Sign",
+      description: "Facilitate online transactions and signatures",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -84,6 +89,7 @@ export default function InitiativesPage() {
     {
       id: 6,
       title: "Lead Magnets & Email Nurturing",
+      description: "Strategies to capture and nurture leads",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -95,6 +101,7 @@ export default function InitiativesPage() {
     {
       id: 7,
       title: "CA Certification for BizzXperts",
+      description: "Get CA certified for credibility",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -106,6 +113,7 @@ export default function InitiativesPage() {
     {
       id: 8,
       title: "Client Onboarding Automation",
+      description: "Automate the client onboarding process",
       status: "Open",
       assigned: "Unassigned",
       start: "24-10-2025",
@@ -165,7 +173,7 @@ export default function InitiativesPage() {
     {
       id: 1,
       title: "Content Marketing",
-      status: "Open",
+      status: "closed",
       assigned: "Unassigned",
       start: "24-12-2025",
       due: "02-09-2026",
@@ -189,7 +197,11 @@ export default function InitiativesPage() {
       <Tabs tabs={tabs} activeTab={activeTab} onTabChange={setActiveTab} />
 
       <div className="flex-1">
-        <TableWrapper columns={columns} data={getActiveData()} />
+        <TableWrapper
+          columns={columns}
+          data={getActiveData()}
+          renderCell={defaultRenderCell}
+        />
       </div>
     </div>
   );

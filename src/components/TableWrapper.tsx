@@ -10,16 +10,25 @@ interface Column {
 interface TableWrapperProps {
   columns: Column[];
   data: Record<string, any>[];
+  renderCell?: (
+    key: string,
+    value: any,
+    row: Record<string, any>
+  ) => React.ReactNode;
 }
 
-export default function TableWrapper({ columns, data }: TableWrapperProps) {
+export default function TableWrapper({
+  columns,
+  data,
+  renderCell,
+}: TableWrapperProps) {
   return (
-    <div className="overflow-x-auto bg-white shadow rounded-lg border-1 border-gray-200 p-3">
+    <div className="overflow-x-auto bg-gray-50 shadow rounded-lg border border-gray-200 p-3">
       <table className="min-w-full text-sm text-left border-collapse">
-        <thead className="bg-gray-100 text-gray-700 uppercase text-xs">
+        <thead className=" text-gray-700 uppercase text-xs bg-white">
           <tr>
             {columns.map((col) => (
-              <th key={col.key} className="px-4 py-1 text-xs whitespace-nowrap">
+              <th key={col.key} className="px-4 py-2 whitespace-nowrap">
                 {col.label}
               </th>
             ))}
@@ -31,14 +40,18 @@ export default function TableWrapper({ columns, data }: TableWrapperProps) {
             data.map((row, idx) => (
               <tr
                 key={idx}
-                className="border-t border-gray-200  hover:bg-gray-50 transition-colors duration-150"
+                className={`border-t border-gray-200 hover:bg-gray-50 transition-colors duration-150 ${
+                  idx % 2 === 0 ? "bg-gray-100" : "bg-gray-200"
+                }`}
               >
                 {columns.map((col) => (
                   <td
                     key={col.key}
-                    className="px-4 py-3 whitespace-nowrap text-gray-800 text-xs"
+                    className={`px-4 py-1.5 whitespace-nowrap text-gray-800 text-xs`}
                   >
-                    {row[col.key]}
+                    {renderCell
+                      ? renderCell(col.key, row[col.key], row)
+                      : row[col.key]}
                   </td>
                 ))}
               </tr>
